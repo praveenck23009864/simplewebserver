@@ -22,39 +22,34 @@ Testing the webserver.
 
 ## PROGRAM:
 ```
+from http.server import HTTPServer, BaseHTTPRequestHandler
+content = """
 <!DOCTYPE html>
-
-<html lang="en">
-
+<html>
 <head>
-
-    <meta charset="UTF-8">
-
-    <title>Top 5 Software Companies</title>
-
+<title>My webserver</title>
 </head>
-
 <body>
-
-    <h1>Top 5 Software Companies by Revenue</h1>
-
-    <ol>
-
-        <li>Microsoft</li>
-
-        <li>Apple</li>
-
-        <li>Amazon</li>
-
-        <li>Alphabet (Google)</li>
-
-        <li>Facebook</li>
-
-    </ol>
-
+<h1><u>Languages used iun Web Development</u><h1>
+<ul>
+<li>HTML</li>
+<li>CSS</li>
+<li>JavaScript</li>
+<li>Bootstrap</li>
 </body>
-
 </html>
+"""
+class myhandler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        print("request received")
+        self.send_response(200)
+        self.send_header('content-type', 'text/html; charset=utf-8')
+        self.end_headers()
+        self.wfile.write(content.encode())
+server_address = ('',80)
+httpd = HTTPServer(server_address,myhandler)
+print("my webserver is running...")
+httpd.serve_forever()
 ```
 ## OUTPUT:
 ![Screenshot 2023-10-10 112553](https://github.com/praveenck23009864/simplewebserver/assets/141472050/d33f2b50-58a3-4bdc-be92-ef4d35b0e2a7)

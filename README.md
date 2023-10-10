@@ -50,7 +50,11 @@ Testing the webserver.
 
         <li>Facebook</li>
 
+    </ol>
 
+</body>
+
+</html>
 ```
 ## OUTPUT:
 ![Screenshot 2023-10-10 112553](https://github.com/praveenck23009864/simplewebserver/assets/141472050/d33f2b50-58a3-4bdc-be92-ef4d35b0e2a7)
